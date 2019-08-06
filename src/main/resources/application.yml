@@ -1,5 +1,5 @@
 server:
-  port: ${EUREKA-PORT:8084}
+  port: ${SERVER-PORT:8084}
 management:
   endpoints:
     web:
@@ -12,9 +12,9 @@ eureka:
   instance:
     hostname: ${EUREKA-SERVER:localhost}
     metadata-map:
-      management.port: ${management.port:server.port}
+      management.port: ${management.port:8184}
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${EUREKA-SERVER:localhost}:${EUREKA-PORT:8084}/eureka/
+      defaultZone: http://${EUREKA-SERVER:localhost}:${SERVER-PORT:8084}/eureka/
