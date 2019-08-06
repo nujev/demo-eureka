@@ -1,0 +1,20 @@
+server:
+  port: ${EUREKA-PORT:8084}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: demo-eureka
+eureka:
+  instance:
+    hostname: ${EUREKA-SERVER:localhost}
+    metadata-map:
+      management.port: ${management.port:server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${EUREKA-SERVER:localhost}:${EUREKA-PORT:8084}/eureka/
